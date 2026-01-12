@@ -1,13 +1,13 @@
 Reinforcement Learning Recommendation System
 
-Overview
+Overview:
 
 This project implements a reinforcement learning–based recommendation system that learns from user feedback in an e-commerce-like setting.
 The recommendation problem is formulated as a contextual bandit, where an agent recommends one item to a user and receives binary feedback (click or no-click).
 
 The goal is to maximize cumulative reward and click-through rate (CTR) under changing user preferences.
 
-Problem Formulation
+Problem Formulation:
 
 State (Context): User ID (simulated)
 
@@ -25,25 +25,25 @@ Objective: Maximize long-term reward and CTR
 
 Each interaction is a single-step episode, consistent with a contextual bandit setting.
 
-Algorithms Implemented
+Algorithms Implemented:
 
 The following methods are implemented and compared:
 
-Epsilon-Greedy
+Epsilon-Greedy:
 
 Simple exploration strategy using random exploration
 
-Upper Confidence Bound (UCB)
+Upper Confidence Bound (UCB):
 
 Uncertainty-aware exploration using confidence bounds
 
-Policy Gradient
+Policy Gradient:
 
 Neural policy trained using online policy gradient updates (PyTorch)
 
 These algorithms were chosen to study different exploration–exploitation trade-offs.
 
-Key Enhancements
+Key Enhancements:
 
 To make the problem more realistic and evaluation meaningful:
 
@@ -56,7 +56,7 @@ Results are averaged across multiple runs to reduce randomness.
 Business-relevant metrics:
 Both CTR over time and total reward are reported.
 
-Evaluation Metrics
+Evaluation Metrics:
 
 CTR (Click-Through Rate):
 Measures recommendation quality over time.
@@ -66,7 +66,7 @@ Measures cumulative value delivered across the full interaction horizon.
 
 Both metrics are necessary to understand short-term quality and long-term impact.
 
-Results Summary
+Results Summary:
 
 UCB achieves the highest average total reward and CTR in the non-stationary setting.
 
@@ -77,7 +77,7 @@ Policy Gradient underperforms due to mismatch with a stateless, non-stationary b
 These results align with theoretical expectations:
 simpler bandit methods outperform deep RL when state and delayed rewards are absent.
 
-Project Structure
+Project Structure:
 RL-recommendation-system/
 ├── agents/
 │   ├── epsilon_greedy.py
@@ -122,3 +122,4 @@ Conclusion
 
 This project demonstrates how reinforcement learning and bandit algorithms can be applied to recommendation systems and evaluated under non-stationary conditions.
 The results highlight that algorithm-environment alignment is critical, and simpler methods can outperform deep RL in appropriate settings.
+

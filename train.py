@@ -10,31 +10,24 @@ from agents.epsilon_greedy import EpsilonGreedy
 from agents.ucb import UCB
 from agents.policy_gradient import PolicyGradientAgent
 
-# ----------------------------
 # Environment
-# ----------------------------
+
 env = RecommenderEnv()
 episodes = 5000
 runs = 5
 
-# ----------------------------
-# Agents (DEFINE FIRST ❗)
-# ----------------------------
+# Agents (DEFINE FIRST)
 agents = {
     "Epsilon-Greedy": EpsilonGreedy(5),
     "UCB": UCB(5),
     "Policy Gradient": PolicyGradientAgent(5)
 }
 
-# ----------------------------
 # Result containers
-# ----------------------------
 all_rewards = {k: [] for k in agents}
 all_ctr = {k: [] for k in agents}
 
-# ----------------------------
 # Training
-# ----------------------------
 for name, agent in agents.items():
     run_rewards = []
     run_ctr = []
@@ -66,9 +59,7 @@ for name, agent in agents.items():
     all_rewards[name] = np.mean(run_rewards)
     all_ctr[name] = np.mean(run_ctr, axis=0)
 
-# ----------------------------
 # Save results
-# ----------------------------
 with open("results.pkl", "wb") as f:
     pickle.dump({
         "rewards": all_rewards,

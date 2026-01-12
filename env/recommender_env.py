@@ -24,7 +24,7 @@ class RecommenderEnv(gym.Env):
         prob = self.click_prob[self.user, action]
         reward = 1 if np.random.rand() < prob else 0
 
-        # 🔥 Add preference drift (non-stationarity)
+        # Add preference drift (non-stationarity)
         drift = np.random.normal(0, 0.01, self.click_prob.shape)
         self.click_prob = np.clip(self.click_prob + drift, 0, 1)
 
